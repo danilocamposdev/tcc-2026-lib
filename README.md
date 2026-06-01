@@ -98,6 +98,6 @@ Os resultados das instâncias de teste já executadas estão disponíveis em:
  
 **Orientador:** Prof. Dr. Maurício Cardoso
  
-**Curso:** Engenharia de Produção — UFMG — 2026
+**Curso:** Engenharia de Produção - UFMG - 2026
  
 
