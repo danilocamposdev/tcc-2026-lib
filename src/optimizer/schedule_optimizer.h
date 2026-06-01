@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 #include "ortools/sat/cp_model.h"
-#include "../data/problem_data.h"
+#include "../model/problem_data.h"
 
 class ScheduleOptimizer {
 	private:

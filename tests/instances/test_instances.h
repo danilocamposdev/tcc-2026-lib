@@ -1,5 +1,5 @@
 #pragma once
-#include "../../src/data/problem_data.h"
+#include "../../src/model/problem_data.h"
 
 inline ProblemData instance_01() {
 	Date start_date = Date{2026,6,1};
