@@ -75,6 +75,7 @@ class AllocationOptimizer {
 			// R5 - Delay activation
 			for (const Order& order : orders_) {
 				for (int k = 1; k <= (T_ - order.delivery_date().to_int(&start_date_)); ++k) {
+					if (order.is_firm()) continue;
 					LinearExpr activation = LinearExpr(y_[order.id()][k]);
 					int time_limit = order.delivery_date().to_int(&start_date_) + k - 1;
 					LinearExpr sum_x_t;
@@ -92,7 +93,7 @@ class AllocationOptimizer {
 			const int artificial_day_penalty = 1000;
 
 			LinearExpr sum_py_j_k;
-			for (const auto& order : orders_) {
+			for (const Order& order : orders_) {
 				if (order.is_firm()) continue;
 				for (int k = 1; k <= (T_ - order.delivery_date().to_int(&start_date_)); ++k) {
 					int penalty = k * order.weight();
