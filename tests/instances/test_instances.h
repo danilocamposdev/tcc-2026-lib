@@ -112,7 +112,21 @@ inline ProblemData instance_07() {
 	return problem_data;
 }
 
+inline ProblemData instance_08() {
+    Date start_date = Date{2026,6,1};
+    ProblemData data{start_date, 2, 3};
 
+    data.molds_repository().add(Mold{0, "Matriz X", 2});
+    data.molds_repository().add(Mold{1, "Matriz Y", 1});
+
+    data.orders_repository().add(Order{0, Date{2026,6,1}, data.molds_repository().get_by_id(0), false, 1});
+    data.orders_repository().add(Order{1, Date{2026,6,1}, data.molds_repository().get_by_id(0), false, 1});
+    data.orders_repository().add(Order{2, Date{2026,6,1}, data.molds_repository().get_by_id(0), false, 1});
+    data.orders_repository().add(Order{3, Date{2026,6,1}, data.molds_repository().get_by_id(1), false, 1});
+    data.orders_repository().add(Order{4, Date{2026,6,1}, data.molds_repository().get_by_id(1), false, 1});
+
+    return data;
+}
 
 
 

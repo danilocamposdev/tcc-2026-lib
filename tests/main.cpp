@@ -26,6 +26,7 @@ int main() {
 	instances.push_back(std::make_unique<ProblemData>(instance_05()));
 	instances.push_back(std::make_unique<ProblemData>(instance_06()));
 	instances.push_back(std::make_unique<ProblemData>(instance_07()));
+	instances.push_back(std::make_unique<ProblemData>(instance_08()));
 
 	for (size_t i = 0; i< instances.size(); ++i) {
 		file << "\n########### Test " << i+1 << " ############" << std::endl;
