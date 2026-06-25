@@ -1,6 +1,6 @@
 #pragma once
-#include "mold.h"
-#include "date.h"
+#include "Mold.h"
+#include "Date.h"
 
 class Order {
 private:

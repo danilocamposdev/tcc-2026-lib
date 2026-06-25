@@ -272,11 +272,11 @@
 
     Day 1 (1/6/2026):
       Order [0] mold: Matriz X | deadline: 1/6/2026 | firm: no [ON TIME]
-      Order [1] mold: Matriz X | deadline: 1/6/2026 | firm: no [ON TIME]
+      Order [2] mold: Matriz X | deadline: 1/6/2026 | firm: no [ON TIME]
       Order [3] mold: Matriz Y | deadline: 1/6/2026 | firm: no [ON TIME]
 
     Day 2 (2/6/2026):
-      Order [2] mold: Matriz X | deadline: 1/6/2026 | firm: no [DELAYED by 1 day(s)]
+      Order [1] mold: Matriz X | deadline: 1/6/2026 | firm: no [DELAYED by 1 day(s)]
       Order [4] mold: Matriz Y | deadline: 1/6/2026 | firm: no [DELAYED by 1 day(s)]
 
     Day T (artificial):

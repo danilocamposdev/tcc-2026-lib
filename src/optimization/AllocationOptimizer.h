@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 #include "ortools/sat/cp_model.h"
-#include "./problem_data.h"
+#include "./ProblemData.h"
 
 class AllocationOptimizer {
 	private:

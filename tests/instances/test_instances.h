@@ -1,5 +1,5 @@
 #pragma once
-#include "../../src/optimization/problem_data.h"
+#include "../../src/optimization/ProblemData.h"
 
 inline ProblemData instance_01() {
 	Date start_date = Date{2026,6,1};
