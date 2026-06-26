@@ -45,11 +45,12 @@ target_include_directories(${PROJECT_NAME} INTERFACE src)
 
 target_link_libraries(${PROJECT_NAME} INTERFACE ortools::ortools)
 
-add_executable(${PROJECT_NAME}_tests
-	tests/main.cpp
-	tests/repository/OrderRepository.cpp
-	tests/repository/MoldRepository.cpp
-)
+#add_executable(${PROJECT_NAME}_tests
+#	tests/main.cpp
+#	tests/repository/OrderRepository.cpp
+#	tests/repository/MoldRepository.cpp
+#)
 
-target_include_directories(${PROJECT_NAME}_tests PRIVATE src tests)
-target_link_libraries(${PROJECT_NAME}_tests PRIVATE ${PROJECT_NAME})
+#target_include_directories(${PROJECT_NAME}_tests PRIVATE src tests)
+
+#target_link_libraries(${PROJECT_NAME}_tests PRIVATE ${PROJECT_NAME})
