@@ -7,9 +7,9 @@ public:
     static const Priority Regular;
     static const Priority High;
 
-    int index()             const { return index_; }  // salvo no banco
-    int value()             const { return value_; }  // usado na otimização
-    std::string to_string()  const { return title_; }  // usado na UI
+    int index()             const { return index_; } 
+    int value()             const { return value_; }
+    std::string to_string()  const { return title_; }
 
     bool operator==(const Priority& other) const { return index_ == other.index_; }
 
