@@ -13,7 +13,7 @@ class Order {
 		Priority priority_;
 		int produced_quantity_;
 	public:
-		Order(Date delivery_date, int mold_id, int client_id, int quantity, Priority priority, int produced_quantity=0)
+		Order(Date delivery_date, int mold_id, int client_id, int quantity, Priority priority, int produced_quantity)
 			: delivery_date_{delivery_date}, mold_id_{mold_id},
 			client_id_{client_id}, quantity_{quantity}, priority_{priority},
 			produced_quantity_{produced_quantity}{}
