@@ -1,14 +1,17 @@
 #pragma once
 #include <string>
+#include <optional>
 
 class Client {
-private:
-    int id_;
-    std::string name_;
-public:
-    Client(int id, std::string name)
-        : id_{id}, name_{std::move(name)} {}
+	private:
+		std::optional<int> id_;
+		std::string name_;
+	public:
+		Client(std::string name)
+			: name_{std::move(name)} {}
 
-    int id() const { return id_; }
-    std::string name() const { return name_; }
+		std::optional<int> id() const { return id_; }
+		void setId(int id) { id_ = id; }
+		bool isPersisted() const { return id_.has_value(); }
+		std::string name() const { return name_; }
 };
