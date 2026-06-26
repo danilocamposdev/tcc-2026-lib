@@ -31,5 +31,5 @@ private:
 };
 
 inline const Priority Priority::Low     {1, 1,   "Baixa"};
-inline const Priority Priority::Regular {2, 5,   "Regular"};
+inline const Priority Priority::Regular {2, 5,   "Media"};
 inline const Priority Priority::High    {3, 100, "Alta"};
