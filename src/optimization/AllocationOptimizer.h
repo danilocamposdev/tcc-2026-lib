@@ -43,8 +43,8 @@ class AllocationOptimizer {
 		AllocationOptimizer(const ProblemData& data);
 		bool solve();
 		void print_results(std::ostream& out = std::cout);
-		void save_results(IOptimizationConfigRepository& config_repo,
-				IProductionAllocationRepository& allocation_repo
+		void save_results(IOptimizationConfigRepository *config_repo,
+				IProductionAllocationRepository *allocation_repo
 				);
 
 };

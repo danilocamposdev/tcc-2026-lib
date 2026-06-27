@@ -199,16 +199,16 @@ void AllocationOptimizer::print_results(std::ostream& out) {
 }
 
 void AllocationOptimizer::save_results(
-    IOptimizationConfigRepository& config_repo,
-    IProductionAllocationRepository& allocation_repo)
+    IOptimizationConfigRepository *config_repo,
+    IProductionAllocationRepository *allocation_repo)
 {
     // limpa resultados anteriores
-    config_repo.clear();
-    allocation_repo.clear();
+    config_repo->clear();
+    allocation_repo->clear();
 
     // salva a config atual e pega o id
     OptimizationConfig config{start_date_, T_ - 1, daily_capacity_};
-    config = config_repo.save(config);
+    config = config_repo->save(config);
 
     // salva cada alocação
     for (int t = 1; t <= T_; ++t) {
@@ -220,7 +220,7 @@ void AllocationOptimizer::save_results(
         Date date = start_date_.sum_days(t - 1);
         for (const auto& [order_id, units] : units_per_order) {
             ProductionAllocation allocation{config.id().value(), order_id, date, units};
-            allocation_repo.save(allocation);
+            allocation_repo->save(allocation);
         }
     }
 }
