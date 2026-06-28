@@ -17,4 +17,6 @@ class Mold {
 		bool isPersisted() const { return id_.has_value(); }
 		std::string type() const {return type_;}
 		int available_quantity() const {return available_quantity_;}
+		void setType(std::string type) {type_ = type;}
+		void setQuantity(int quantity) {available_quantity_ = quantity;}
 };
