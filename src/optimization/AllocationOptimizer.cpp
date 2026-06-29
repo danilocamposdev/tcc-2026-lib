@@ -1,5 +1,6 @@
 #include "AllocationOptimizer.h"
 #include <algorithm>
+#include "../model/Priority.h"
 
 AllocationOptimizer::AllocationOptimizer(const ProblemData& data)
 	: data_{data},
@@ -22,7 +23,7 @@ void AllocationOptimizer::build_jobs() {
 					order.id().value(),
 					order.mold_id(),
 					order.delivery_date().to_int(&start_date_),
-					order.priority().value()
+					Priority::value(order.priority())
 					});
 		}
 	}
@@ -98,7 +99,7 @@ void AllocationOptimizer::build_objective_function() {
 	LinearExpr sum_py_j_k;
 	for (const Job& job : jobs_) {
 		for (int k = 1; k <= (T_ - job.deadline); ++k) {
-			int penalty = k * job.priority;
+			int penalty = k * Priority::value(job.priority);
 			if (job.deadline + k == T_)
 				penalty += artificial_day_penalty * delay_weight;
 			sum_py_j_k += LinearExpr::Term(y_[job.id][k], penalty);
@@ -158,7 +159,7 @@ void AllocationOptimizer::print_results(std::ostream& out) {
 			<< " | Quantity: " << order.quantity()
 			<< " | Produced: " << order.produced_quantity()
 			<< " | Remaining: " << remaining
-			<< " | Priority: " << order.priority().value() << "\n";
+			<< " | Priority: " << Priority::value(order.priority()) << "\n";
 	}
 
 	out << "\n  OPTIMAL ALLOCATION:\n\n";

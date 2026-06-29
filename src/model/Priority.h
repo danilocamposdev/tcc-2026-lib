@@ -3,33 +3,21 @@
 
 class Priority {
 public:
-    static const Priority Low;
-    static const Priority Regular;
-    static const Priority High;
-
-    int index()             const { return index_; } 
-    int value()             const { return value_; }
-    std::string to_string()  const { return title_; }
-
-    bool operator==(const Priority& other) const { return index_ == other.index_; }
-
-    static Priority fromIndex(int index) {
+    static int value(int index) {
         switch (index) {
-            case 1:  return Low;
-            case 2:  return Regular;
-            default: return High;
+            case 1:  return 1;
+            case 2:  return 5;
+            default: return 100;
         }
     }
 
-private:
-    Priority(int index, int value, std::string title)
-        : index_(index), value_(value), title_(title) {}
+    static std::string text(int index) {
+        switch (index) {
+            case 1:  return "Baixa";
+            case 2:  return "Média";
+            default: return "Alta";
+        }
+    }
 
-    int index_;
-    int value_;
-    std::string title_;
+    Priority() = delete; // impede instanciação
 };
-
-inline const Priority Priority::Low     {1, 1,   "Baixa"};
-inline const Priority Priority::Regular {2, 5,   "Media"};
-inline const Priority Priority::High    {3, 100, "Alta"};
