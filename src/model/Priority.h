@@ -5,9 +5,9 @@ class Priority {
 public:
     static int value(int index) {
         switch (index) {
-            case 1:  return 1;
-            case 2:  return 5;
-            default: return 100;
+            case 1:  return 100;
+            case 2:  return 500;
+            default: return 1000;
         }
     }
 
@@ -19,5 +19,5 @@ public:
         }
     }
 
-    Priority() = delete; // impede instanciação
+    Priority() = delete;
 };

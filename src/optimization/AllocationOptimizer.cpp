@@ -23,7 +23,7 @@ void AllocationOptimizer::build_jobs() {
 					order.id().value(),
 					order.mold_id(),
 					order.delivery_date().to_int(&start_date_),
-					Priority::value(order.priority())
+					order.priority()
 					});
 		}
 	}
@@ -92,16 +92,15 @@ void AllocationOptimizer::build_constraints() {
 void AllocationOptimizer::build_objective_function() {
 	using operations_research::sat::LinearExpr;
 
-	const int artificial_day_penalty = 1000;
+	const int artificial_day_penalty = T_ * Priority::value(3) * 10;
 	const int earliness_weight = 1;
-    const int delay_weight = (T_ * (int)jobs_.size()) + 1;
 
 	LinearExpr sum_py_j_k;
 	for (const Job& job : jobs_) {
 		for (int k = 1; k <= (T_ - job.deadline); ++k) {
 			int penalty = k * Priority::value(job.priority);
 			if (job.deadline + k == T_)
-				penalty += artificial_day_penalty * delay_weight;
+				penalty += artificial_day_penalty;
 			sum_py_j_k += LinearExpr::Term(y_[job.id][k], penalty);
 		}
 	}
